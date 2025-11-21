@@ -1,64 +1,370 @@
+// app/page.tsx
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-50">
+      {/* Top blurred glow */}
+      <div className="pointer-events-none fixed inset-x-0 top-[-200px] z-0 flex justify-center opacity-60">
+        <div className="h-[300px] w-[600px] rounded-full bg-sky-500/40 blur-3xl" />
+      </div>
+
+      <main className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pt-12">
+        {/* Nav */}
+        <header className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center">
+              <Image
+                src="/logo.png"
+                alt="Voisly logo"
+                width={60}
+                height={60}
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold tracking-tight">
+                Voisly
+              </span>
+              <span className="text-xs text-slate-400">
+                AI Meeting Recorder
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 text-xs sm:text-sm">
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="#features"
+              className="hidden text-slate-300 hover:text-slate-50 sm:inline"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              Features
+            </a>
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="#pricing"
+              className="hidden text-slate-300 hover:text-slate-50 sm:inline"
             >
-              Learning
-            </a>{" "}
-            center.
+              Pricing
+            </a>
+            <a
+              href="#download"
+              className="inline-flex items-center gap-1 rounded-full border border-slate-700 bg-slate-900/60 px-3 py-1.5 text-xs font-medium text-slate-100 shadow-sm backdrop-blur hover:border-sky-500 hover:bg-slate-900"
+            >
+              Get the app
+            </a>
+          </div>
+        </header>
+
+        {/* Hero */}
+        <section className="mt-14 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-medium text-sky-100">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              Now recording your meetings for you
+            </div>
+
+            <div className="space-y-4">
+              <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+                Record the meeting.
+                <span className="block bg-gradient-to-r from-sky-300 to-sky-500 bg-clip-text text-transparent">
+                  Voisly remembers everything.
+                </span>
+              </h1>
+
+              <p className="max-w-xl text-balance text-sm text-slate-300 sm:text-base">
+                Stay present in the conversation. Voisly records, transcribes,
+                and summarizes your meetings into clean notes and action items —
+                automatically.
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#download"
+                className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
+              >
+                Download on iOS
+              </a>
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-sm font-medium text-slate-100 backdrop-blur hover:border-slate-500"
+              >
+                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                Watch it summarize a meeting
+              </button>
+            </div>
+
+            {/* Social proof */}
+            <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 sm:text-sm">
+              <div className="flex items-center gap-1.5">
+                <span className="text-amber-300">★★★★★</span>
+                <span>Early users say it feels like a real assistant</span>
+              </div>
+              <div className="h-1 w-1 rounded-full bg-slate-600" />
+              <p>Built for founders, consultants & teams who live in meetings.</p>
+            </div>
+          </div>
+
+          {/* Mockup card */}
+          <div className="md:pl-4">
+            <div className="relative mx-auto max-w-md">
+              <div className="absolute -inset-4 rounded-3xl bg-sky-500/20 blur-2xl" />
+              <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-2xl shadow-black/50 backdrop-blur">
+                <div className="flex items-center justify-between px-4 pt-3 pb-2">
+                  <div className="flex items-center gap-2">
+                    <div className="h-7 w-7 rounded-2xl bg-sky-500/20" />
+                    <div>
+                      <p className="text-xs font-semibold text-slate-50">
+                        Weekly Sync · Recording
+                      </p>
+                      <p className="text-[10px] text-slate-400">
+                        Voisly is capturing this meeting
+                      </p>
+                    </div>
+                  </div>
+                  <span className="rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-semibold text-slate-950">
+                    ● REC
+                  </span>
+                </div>
+
+                <div className="space-y-3 border-t border-slate-800/60 bg-slate-950/40 px-4 py-4">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                      Live transcription
+                    </p>
+                    <div className="mt-1 space-y-1.5 rounded-2xl bg-slate-900/80 p-3 text-xs leading-relaxed text-slate-100">
+                      <p>
+                        Alex: Let&apos;s confirm the Q3 priorities and owners for
+                        each project…
+                      </p>
+                      <p className="text-slate-300">
+                        You: I&apos;ll take the client follow-ups and summarize
+                        this meeting.
+                      </p>
+                      <p className="text-slate-400">
+                        Voisly is generating a summary in the background…
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                      Summary
+                    </p>
+                    <div className="mt-1 space-y-2 rounded-2xl bg-slate-900/80 p-3 text-xs text-slate-100">
+                      <p className="font-medium">Key decisions</p>
+                      <ul className="space-y-1 text-slate-200">
+                        <li>• Launch beta for new client portal in Q3</li>
+                        <li>• Increase check-ins for top 10 accounts</li>
+                      </ul>
+                      <p className="mt-2 font-medium">Action items</p>
+                      <ul className="space-y-1 text-slate-200">
+                        <li>• You: Send recap email by tomorrow</li>
+                        <li>• Alex: Share updated roadmap by Friday</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between border-t border-slate-800/60 bg-slate-950/80 px-4 py-3">
+                  <span className="text-[11px] text-slate-400">
+                    42 min · 3 speakers
+                  </span>
+                  <button className="rounded-full bg-sky-500/90 px-3 py-1.5 text-[11px] font-semibold text-slate-950 hover:bg-sky-400">
+                    View full notes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section id="features" className="mt-20 space-y-6">
+          <h2 className="text-lg font-semibold tracking-tight text-slate-50 sm:text-2xl">
+            Built for people who live in meetings.
+          </h2>
+          <p className="max-w-2xl text-sm text-slate-300">
+            Voisly gives you a clean, focused experience that feels native to
+            iOS — without clutter, noise, or clunky controls.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+          <div className="mt-4 grid gap-5 md:grid-cols-3">
+            {[
+              {
+                title: "One-tap recording",
+                body: "Start recording before or during a meeting. Voisly stays out of the way so you can stay present.",
+              },
+              {
+                title: "Transcription & summaries",
+                body: "Accurate transcripts plus concise summaries with key decisions and action items.",
+              },
+              {
+                title: "Extract actionable points",
+                body: "Automatically identifies and highlights action items, decisions, and key takeaways from your meetings.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-slate-800 bg-slate-950/40 p-4 text-sm shadow-sm"
+              >
+                <h3 className="text-sm font-semibold text-slate-50">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs text-slate-300">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section id="pricing" className="mt-20 space-y-6">
+          <h2 className="text-lg font-semibold tracking-tight text-slate-50 sm:text-2xl">
+            Simple pricing for serious work.
+          </h2>
+          <p className="max-w-2xl text-sm text-slate-300">
+            Start free. Upgrade when your meetings (and impact) grow.
+          </p>
+
+          <div className="mt-6 grid gap-5 md:grid-cols-4">
+            {/* Free */}
+            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/40 p-5">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-300">
+                Free
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-50">
+                €0
+                <span className="text-xs font-normal text-slate-400"> /month</span>
+              </p>
+              <p className="mt-2 text-xs text-slate-300">
+                Try Voisly with limited recording time.
+              </p>
+              <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
+                <li>• 30 minutes / month</li>
+                <li>• Basic transcription</li>
+                <li>• Standard summaries</li>
+              </ul>
+            </div>
+
+            {/* Basic */}
+            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                Basic
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-50">
+                €4.99
+                <span className="text-xs font-normal text-slate-400"> /month</span>
+              </p>
+              <p className="mt-2 text-xs text-slate-300">
+                For individuals who want every important meeting captured.
+              </p>
+              <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
+                <li>• Record and transcribe meetings</li>
+                <li>• AI summaries & action items</li>
+                <li>• Export notes</li>
+              </ul>
+            </div>
+
+            {/* Pro */}
+            <div className="flex flex-col rounded-2xl border border-sky-500/70 bg-sky-500/10 p-5 shadow-lg shadow-sky-500/20">
+              <p className="text-xs font-semibold uppercase tracking-wide text-sky-300">
+                Pro
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-50">
+                €9.99
+                <span className="text-xs font-normal text-slate-300"> /month</span>
+              </p>
+              <p className="mt-2 text-xs text-slate-200">
+                For founders, consultants and leaders who live in meetings.
+              </p>
+              <ul className="mt-4 space-y-1.5 text-xs text-slate-100">
+                <li>• Everything in Basic</li>
+                <li>• More recording time per month</li>
+                <li>• Priority processing</li>
+                <li>• Early access to new features</li>
+              </ul>
+            </div>
+
+            {/* Teams */}
+            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                Teams
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-50">
+                €19.99
+                <span className="text-xs font-normal text-slate-400"> /month</span>
+              </p>
+              <p className="mt-2 text-xs text-slate-300">
+                For small teams who want a shared source of truth.
+              </p>
+              <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
+                <li>• Unlimited recording time</li>
+                <li>• Unlimited transcriptions</li>
+                <li>• Unlimited summaries</li>
+                <li>• Unlimited actionable points</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Download / footer */}
+        <section id="download" className="mt-20 space-y-4">
+          <h2 className="text-lg font-semibold tracking-tight text-slate-50 sm:text-2xl">
+            Ready to stop losing your meetings?
+          </h2>
+          <p className="max-w-xl text-sm text-slate-300">
+            Voisly is launching on the App Store. Be the first to get it when
+            it&apos;s live.
+          </p>
+
+          <form className="mt-4 flex max-w-md flex-col gap-3 sm:flex-row">
+            <input
+              type="email"
+              required
+              placeholder="Enter your email"
+              className="h-10 flex-1 rounded-full border border-slate-700 bg-slate-950/70 px-4 text-sm text-slate-50 placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
+            >
+              Get notified
+            </button>
+          </form>
+
+          <p className="mt-6 text-xs text-slate-500">
+            No spam. Just a quick note when Voisly is live — and maybe a tip or
+            two on making meetings less painful.
+          </p>
+        </section>
+
+        <footer className="mt-16 border-t border-slate-800 pt-6 text-xs text-slate-500">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p>© {new Date().getFullYear()} Voisly. All rights reserved.</p>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="https://maximeve.github.io/voisly-privacy/"
+                className="hover:text-slate-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy
+              </a>
+              <a
+                href="https://maximeve.github.io/voisly-terms-of-service/"
+                className="hover:text-slate-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms
+              </a>
+              <span className="text-slate-600">
+                Built by a guy who was tired of bad meetings.
+              </span>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   );

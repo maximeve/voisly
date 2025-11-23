@@ -72,8 +72,8 @@ export default function Home() {
 
               <p className="max-w-xl text-balance text-sm text-slate-300 sm:text-base">
                 Stay present in the conversation. Voisly records, transcribes,
-                and summarizes your meetings into clean notes and action items —
-                automatically. Export action items directly to your calendar.
+                and summarizes your meetings into clean notes and action items.
+                Export action items directly to your calendar.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ export default function Home() {
           </h2>
           <p className="max-w-2xl text-sm text-slate-300">
             Voisly gives you a clean, focused experience that feels native to
-            iOS — without clutter, noise, or clunky controls.
+            iOS. No clutter, noise, or clunky controls.
           </p>
 
           <div className="mt-4 grid gap-5 md:grid-cols-3">
@@ -362,7 +362,7 @@ export default function Home() {
           </form>
 
           <p className="mt-6 text-xs text-slate-500">
-            No spam. Just a quick note when Voisly is live — and maybe a tip or
+            No spam. Just a quick note when Voisly is live, plus maybe a tip or
             two on making meetings less painful.
           </p>
         </section>

@@ -15,8 +15,8 @@ export default function Home() {
           <div className="flex items-center gap-3 cursor-pointer transition-opacity duration-200 hover:opacity-80">
             <div className="flex items-center justify-center">
               <Image
-                src="/logo.png"
-                alt="Voisly logo"
+                src="/transcribing-mascot.png"
+                alt="Voisly transcribing mascot"
                 width={60}
                 height={60}
                 className="h-12 w-auto object-contain"

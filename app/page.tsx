@@ -73,7 +73,7 @@ export default function Home() {
               <p className="max-w-xl text-balance text-sm text-slate-300 sm:text-base">
                 Stay present in the conversation. Voisly records, transcribes,
                 and summarizes your meetings into clean notes and action items —
-                automatically.
+                automatically. Export action items directly to your calendar.
               </p>
             </div>
 
@@ -157,7 +157,25 @@ export default function Home() {
                         <li>• Launch beta for new client portal in Q3</li>
                         <li>• Increase check-ins for top 10 accounts</li>
                       </ul>
-                      <p className="mt-2 font-medium">Action items</p>
+                      <div className="mt-2 flex items-center justify-between">
+                        <p className="font-medium">Action items</p>
+                        <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 hover:border-sky-500 hover:bg-slate-800">
+                          <svg
+                            className="h-3 w-3"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                          Add to calendar
+                        </button>
+                      </div>
                       <ul className="space-y-1 text-slate-200">
                         <li>• You: Send recap email by tomorrow</li>
                         <li>• Alex: Share updated roadmap by Friday</li>
@@ -200,8 +218,8 @@ export default function Home() {
                 body: "Accurate transcripts plus concise summaries with key decisions and action items.",
               },
               {
-                title: "Extract actionable points",
-                body: "Automatically identifies and highlights action items, decisions, and key takeaways from your meetings.",
+                title: "Export to calendar",
+                body: "One-tap export of action items to your calendar. Never miss a follow-up or deadline again.",
               },
             ].map((item) => (
               <div
@@ -240,9 +258,10 @@ export default function Home() {
                 Try Voisly with limited recording time.
               </p>
               <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
-                <li>• 30 minutes / month</li>
+                <li>• limited recording time</li>
                 <li>• Basic transcription</li>
                 <li>• Standard summaries</li>
+                <li>• Calendar export & integrations</li>
               </ul>
             </div>
 
@@ -262,6 +281,7 @@ export default function Home() {
                 <li>• Record and transcribe meetings</li>
                 <li>• AI summaries & action items</li>
                 <li>• Export notes</li>
+                <li>• Calendar export & integrations</li>
               </ul>
             </div>
 
@@ -281,14 +301,14 @@ export default function Home() {
                 <li>• Everything in Basic</li>
                 <li>• More recording time per month</li>
                 <li>• Priority processing</li>
-                <li>• Early access to new features</li>
+                <li>• Calendar export & integrations</li>
               </ul>
             </div>
 
             {/* Teams */}
             <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                Teams
+                Unlimited
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
                 €19.99
@@ -302,6 +322,7 @@ export default function Home() {
                 <li>• Unlimited transcriptions</li>
                 <li>• Unlimited summaries</li>
                 <li>• Unlimited actionable points</li>
+                <li>• Calendar export & integrations</li>
               </ul>
             </div>
           </div>

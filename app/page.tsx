@@ -12,7 +12,7 @@ export default function Home() {
       <main className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pt-12">
         {/* Nav */}
         <header className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 cursor-pointer transition-opacity duration-200 hover:opacity-80">
             <div className="flex items-center justify-center">
               <Image
                 src="/logo.png"
@@ -87,7 +87,7 @@ export default function Home() {
               </a>
               <button
                 type="button"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-sm font-medium text-slate-100 backdrop-blur hover:border-slate-500"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-sm font-medium text-slate-100 backdrop-blur transition-all duration-200 hover:border-slate-500 hover:bg-slate-900/80"
               >
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
                 Watch it summarize a meeting
@@ -159,7 +159,7 @@ export default function Home() {
                       </ul>
                       <div className="mt-2 flex items-center justify-between">
                         <p className="font-medium">Action items</p>
-                        <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 hover:border-sky-500 hover:bg-slate-800">
+                        <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 transition-all duration-200 hover:border-sky-500 hover:bg-slate-800 hover:text-sky-300">
                           <svg
                             className="h-3 w-3"
                             fill="none"
@@ -188,7 +188,7 @@ export default function Home() {
                   <span className="text-[11px] text-slate-400">
                     42 min · 3 speakers
                   </span>
-                  <button className="rounded-full bg-sky-500/90 px-3 py-1.5 text-[11px] font-semibold text-slate-950 hover:bg-sky-400">
+                  <button className="rounded-full bg-sky-500/90 px-3 py-1.5 text-[11px] font-semibold text-slate-950 transition-all duration-200 hover:bg-sky-400 hover:shadow-md hover:shadow-sky-500/50">
                     View full notes
                   </button>
                 </div>
@@ -224,7 +224,7 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-slate-800 bg-slate-950/40 p-4 text-sm shadow-sm"
+                className="rounded-2xl border border-slate-800 bg-slate-950/40 p-4 text-sm shadow-sm transition-all duration-200 hover:border-slate-700 hover:bg-slate-950/60 hover:shadow-md"
               >
                 <h3 className="text-sm font-semibold text-slate-50">
                   {item.title}
@@ -246,7 +246,7 @@ export default function Home() {
 
           <div className="mt-6 grid gap-5 md:grid-cols-4">
             {/* Free */}
-            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/40 p-5">
+            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/40 p-5 transition-all duration-200 hover:border-slate-700 hover:bg-slate-950/60">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-300">
                 Free
               </p>
@@ -266,7 +266,7 @@ export default function Home() {
             </div>
 
             {/* Basic */}
-            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5">
+            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5 transition-all duration-200 hover:border-slate-700 hover:bg-slate-950/80 hover:shadow-lg">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                 Basic
               </p>
@@ -286,7 +286,7 @@ export default function Home() {
             </div>
 
             {/* Pro */}
-            <div className="flex flex-col rounded-2xl border border-sky-500/70 bg-sky-500/10 p-5 shadow-lg shadow-sky-500/20">
+            <div className="flex flex-col rounded-2xl border border-sky-500/70 bg-sky-500/10 p-5 shadow-lg shadow-sky-500/20 transition-all duration-200 hover:border-sky-500 hover:bg-sky-500/15 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5">
               <p className="text-xs font-semibold uppercase tracking-wide text-sky-300">
                 Pro
               </p>
@@ -306,7 +306,7 @@ export default function Home() {
             </div>
 
             {/* Teams */}
-            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5">
+            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5 transition-all duration-200 hover:border-slate-700 hover:bg-slate-950/80 hover:shadow-lg">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                 Unlimited
               </p>
@@ -344,7 +344,7 @@ export default function Home() {
               type="email"
               required
               placeholder="Enter your email"
-              className="h-10 flex-1 rounded-full border border-slate-700 bg-slate-950/70 px-4 text-sm text-slate-50 placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+              className="h-10 flex-1 rounded-full border border-slate-700 bg-slate-950/70 px-4 text-sm text-slate-50 placeholder:text-slate-500 transition-all duration-200 hover:border-slate-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
             />
             <button
               type="submit"

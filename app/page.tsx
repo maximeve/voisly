@@ -1,5 +1,6 @@
 // app/page.tsx
 import Image from "next/image";
+import QuestionForm from "./components/QuestionForm";
 
 export default function Home() {
   return (
@@ -65,7 +66,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-balance text-4xl font-semibold tracking-tight leading-[1.1] sm:text-5xl sm:leading-[1.1] lg:text-6xl lg:leading-[1.2]">
                 Record the meeting.
                 <span className="block bg-gradient-to-r from-sky-300 to-sky-500 bg-clip-text text-transparent">
                   Voisly remembers everything.
@@ -357,20 +358,7 @@ export default function Home() {
             Download on the App Store
           </a>
 
-          <form className="mt-4 flex max-w-md flex-col gap-3">
-            <input
-              type="text"
-              required
-              placeholder="Have a question? Ask us here..."
-              className="h-10 w-full rounded-full border border-slate-700 bg-slate-950/70 px-4 text-base text-slate-50 placeholder:text-slate-500 transition-all duration-200 hover:border-slate-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
-            />
-            <button
-              type="submit"
-              className="inline-flex w-full items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-base font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400 sm:text-sm"
-            >
-              Send question
-            </button>
-          </form>
+          <QuestionForm />
 
           <p className="mt-6 text-xs text-slate-500">
             We&apos;ll get back to you as soon as possible.

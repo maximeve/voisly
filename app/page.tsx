@@ -75,8 +75,8 @@ export default function Home() {
 
               <p className="max-w-xl text-balance text-sm text-slate-300 sm:text-base">
                 Stay present in the conversation. Voisly records, transcribes,
-                and summarizes your meetings into clean notes and action items.
-                Export action items directly to your calendar.
+                and summarizes your meetings into clean notes and generated action points.
+                Export directly to your calendar.
               </p>
             </div>
 
@@ -153,22 +153,9 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-                      Summary
-                    </p>
-                    <div className="mt-1 space-y-2 rounded-2xl bg-slate-900/80 p-3 text-xs text-slate-100">
-                      <p className="font-medium">Key decisions</p>
-                      <ul className="space-y-1 text-slate-200">
-                        <li>• Launch beta for new client portal in Q3</li>
-                        <li>• Increase check-ins for top 10 accounts</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div>
                     <div className="flex items-center justify-between">
                       <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-                        Action items
+                        Summary
                       </p>
                       <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 transition-all duration-200 hover:border-sky-500 hover:bg-slate-800 hover:text-sky-300">
                         <svg
@@ -181,11 +168,60 @@ export default function Home() {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth={2}
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
                           />
                         </svg>
-                        Add to calendar
+                        Share
                       </button>
+                    </div>
+                    <div className="mt-1 space-y-2 rounded-2xl bg-slate-900/80 p-3 text-xs text-slate-100">
+                      <p className="font-medium">Key decisions</p>
+                      <ul className="space-y-1 text-slate-200">
+                        <li>• Launch beta for new client portal in Q3</li>
+                        <li>• Increase check-ins for top 10 accounts</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                        Action points
+                      </p>
+                      <div className="flex items-center gap-1">
+                        <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 transition-all duration-200 hover:border-sky-500 hover:bg-slate-800 hover:text-sky-300">
+                          <svg
+                            className="h-3 w-3"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                            />
+                          </svg>
+                          Share
+                        </button>
+                        <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 transition-all duration-200 hover:border-sky-500 hover:bg-slate-800 hover:text-sky-300">
+                          <svg
+                            className="h-3 w-3"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                          Add to calendar
+                        </button>
+                      </div>
                     </div>
                     <div className="mt-1 space-y-1 rounded-2xl bg-slate-900/80 p-3 text-xs text-slate-100">
                       <ul className="space-y-1 text-slate-200">
@@ -200,9 +236,6 @@ export default function Home() {
                   <span className="text-[11px] text-slate-400">
                     42 min · 3 speakers
                   </span>
-                  <button className="rounded-full bg-sky-500/90 px-3 py-1.5 text-[11px] font-semibold text-slate-950 transition-all duration-200 hover:bg-sky-400 hover:shadow-md hover:shadow-sky-500/50">
-                    View full notes
-                  </button>
                 </div>
               </div>
             </div>
@@ -227,11 +260,11 @@ export default function Home() {
               },
               {
                 title: "Transcription & summaries",
-                body: "Accurate transcripts plus concise summaries with key decisions and action items.",
+                body: "Accurate transcripts plus concise summaries with key decisions and action points.",
               },
               {
                 title: "Export to calendar",
-                body: "One-tap export of action items to your calendar. Never miss a follow-up or deadline again.",
+                body: "One-tap export of action points to your calendar. Never miss a follow-up or deadline again.",
               },
             ].map((item) => (
               <div
@@ -291,7 +324,7 @@ export default function Home() {
               </p>
               <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
                 <li>• Record and transcribe meetings</li>
-                <li>• Summaries & action items</li>
+                <li>• Summaries & action points</li>
                 <li>• Export notes</li>
                 <li>• Calendar export & integrations</li>
               </ul>
@@ -332,7 +365,7 @@ export default function Home() {
               <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
                 <li>• Unlimited recording time</li>
                 <li>• Unlimited transcriptions</li>
-                <li>• Unlimited summaries & actionable points</li>
+                <li>• Unlimited summaries & action points</li>
                 <li>• Calendar export & integrations</li>
               </ul>
             </div>

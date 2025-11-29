@@ -27,7 +27,7 @@ export default function Home() {
                 Voisly
               </span>
               <span className="text-xs text-slate-400">
-                AI Meeting Recorder
+                Meeting Recorder
               </span>
             </div>
           </div>
@@ -46,7 +46,9 @@ export default function Home() {
               Pricing
             </a>
             <a
-              href="#download"
+              href="https://apps.apple.com/be/app/voisly/id6754822721"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1 rounded-full border border-slate-700 bg-slate-900/60 px-3 py-1.5 text-xs font-medium text-slate-100 shadow-sm backdrop-blur hover:border-sky-500 hover:bg-slate-900"
             >
               Get the app
@@ -80,7 +82,9 @@ export default function Home() {
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="#download"
+                href="https://apps.apple.com/be/app/voisly/id6754822721"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
               >
                 Download on iOS
@@ -286,7 +290,7 @@ export default function Home() {
               </p>
               <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
                 <li>• Record and transcribe meetings</li>
-                <li>• AI summaries & action items</li>
+                <li>• Summaries & action items</li>
                 <li>• Export notes</li>
                 <li>• Calendar export & integrations</li>
               </ul>
@@ -327,8 +331,7 @@ export default function Home() {
               <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
                 <li>• Unlimited recording time</li>
                 <li>• Unlimited transcriptions</li>
-                <li>• Unlimited summaries</li>
-                <li>• Unlimited actionable points</li>
+                <li>• Unlimited summaries & actionable points</li>
                 <li>• Calendar export & integrations</li>
               </ul>
             </div>
@@ -342,28 +345,35 @@ export default function Home() {
             Ready to stop losing your meetings?
           </h2>
           <p className="max-w-xl text-sm text-slate-300">
-            Voisly is launching on the App Store. Be the first to get it when
-            it&apos;s live.
+            Voisly is now available on the App Store. Download it today and start capturing your meetings.
           </p>
 
-          <form className="mt-4 flex max-w-md flex-col gap-3 sm:flex-row">
+          <a
+            href="https://apps.apple.com/be/app/voisly/id6754822721"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400 mt-4"
+          >
+            Download on the App Store
+          </a>
+
+          <form className="mt-4 flex max-w-md flex-col gap-3">
             <input
-              type="email"
+              type="text"
               required
-              placeholder="Enter your email"
-              className="h-10 flex-1 rounded-full border border-slate-700 bg-slate-950/70 px-4 text-sm text-slate-50 placeholder:text-slate-500 transition-all duration-200 hover:border-slate-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+              placeholder="Have a question? Ask us here..."
+              className="h-10 w-full rounded-full border border-slate-700 bg-slate-950/70 px-4 text-base text-slate-50 placeholder:text-slate-500 transition-all duration-200 hover:border-slate-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
+              className="inline-flex w-full items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-base font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400 sm:text-sm"
             >
-              Get notified
+              Send question
             </button>
           </form>
 
           <p className="mt-6 text-xs text-slate-500">
-            No spam. Just a quick note when Voisly is live, plus maybe a tip or
-            two on making meetings less painful.
+            We&apos;ll get back to you as soon as possible.
           </p>
         </section>
 

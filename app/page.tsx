@@ -263,7 +263,7 @@ export default function Home() {
                 Free
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
-                €0
+                $0
                 <span className="text-xs font-normal text-slate-400"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-300">
@@ -283,7 +283,7 @@ export default function Home() {
                 Basic
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
-                €4.99
+                $4.99
                 <span className="text-xs font-normal text-slate-400"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-300">
@@ -303,7 +303,7 @@ export default function Home() {
                 Pro
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
-                €9.99
+                $9.99
                 <span className="text-xs font-normal text-slate-300"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-200">
@@ -323,7 +323,7 @@ export default function Home() {
                 Unlimited
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
-                €19.99
+                $19.99
                 <span className="text-xs font-normal text-slate-400"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-300">

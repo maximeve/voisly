@@ -58,7 +58,7 @@ export default function Home() {
         </header>
 
         {/* Hero */}
-        <section className="mt-14 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center">
+        <section className="mt-14 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center animate-fade-in-up">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-medium text-sky-100">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -113,8 +113,8 @@ export default function Home() {
           {/* Mockup card */}
           <div className="md:pl-4">
             <div className="relative mx-auto max-w-md">
-              <div className="absolute -inset-4 rounded-3xl bg-sky-500/20 blur-2xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-2xl shadow-black/50 backdrop-blur">
+              <div className="absolute -inset-4 rounded-3xl bg-sky-500/20 blur-2xl animate-float" />
+              <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-2xl shadow-black/50 backdrop-blur animate-float">
                 <div className="flex items-center justify-between px-4 pt-3 pb-2">
                   <div className="flex items-center gap-2">
                     <div className="h-7 w-7 rounded-2xl bg-sky-500/20" />

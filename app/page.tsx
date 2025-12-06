@@ -107,7 +107,7 @@ export default function Home() {
           {/* Mockup card */}
           <div className="md:pl-4">
             <div className="relative mx-auto max-w-md">
-              <div className="absolute -inset-4 rounded-3xl bg-sky-500/20 blur-2xl animate-float" />
+              <div className="absolute -inset-4 rounded-3xl bg-sky-500/20 blur-2xl animate-float" style={{ animationDelay: '1.5s' }} />
               <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-2xl shadow-black/50 backdrop-blur animate-float">
                 <div className="flex items-center justify-between px-4 pt-3 pb-2">
                   <div className="flex items-center gap-2">

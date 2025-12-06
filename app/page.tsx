@@ -1,5 +1,6 @@
 // app/page.tsx
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -85,13 +86,6 @@ export default function Home() {
               >
                 Download on iOS
               </a>
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-sm font-medium text-slate-100 backdrop-blur transition-all duration-200 hover:border-slate-500 hover:bg-slate-900/80"
-              >
-                <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                Watch it summarize a meeting
-              </button>
             </div>
 
             {/* Social proof */}
@@ -371,22 +365,15 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p>© {new Date().getFullYear()} Voisly. All rights reserved.</p>
             <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="https://maximeve.github.io/voisly-privacy/"
-                className="hover:text-slate-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/privacy" className="hover:text-slate-300">
                 Privacy
-              </a>
-              <a
-                href="https://maximeve.github.io/voisly-terms-of-service/"
-                className="hover:text-slate-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              </Link>
+              <Link href="/terms" className="hover:text-slate-300">
                 Terms
-              </a>
+              </Link>
+              <Link href="/security" className="hover:text-slate-300">
+                Security
+              </Link>
               <span className="text-slate-600">
                 Built by a guy who was tired of bad meetings.
               </span>

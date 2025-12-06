@@ -1,6 +1,7 @@
 // app/page.tsx
 import Image from "next/image";
 import Link from "next/link";
+import QuestionForm from "./components/QuestionForm";
 
 export default function Home() {
   return (
@@ -28,7 +29,7 @@ export default function Home() {
                 Voisly
               </span>
               <span className="text-xs text-slate-400">
-                AI Meeting Recorder
+                Meeting Recorder
               </span>
             </div>
           </div>
@@ -47,7 +48,9 @@ export default function Home() {
               Pricing
             </a>
             <a
-              href="#download"
+              href="https://apps.apple.com/be/app/voisly/id6754822721"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1 rounded-full border border-slate-700 bg-slate-900/60 px-3 py-1.5 text-xs font-medium text-slate-100 shadow-sm backdrop-blur hover:border-sky-500 hover:bg-slate-900"
             >
               Get the app
@@ -56,7 +59,7 @@ export default function Home() {
         </header>
 
         {/* Hero */}
-        <section className="mt-14 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center">
+        <section className="mt-14 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center animate-fade-in-up">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-medium text-sky-100">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -64,7 +67,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-balance text-4xl font-semibold tracking-tight leading-[1.1] sm:text-5xl sm:leading-[1.1] lg:text-6xl lg:leading-[1.2]">
                 Record the meeting.
                 <span className="block bg-gradient-to-r from-sky-300 to-sky-500 bg-clip-text text-transparent">
                   Voisly remembers everything.
@@ -73,15 +76,17 @@ export default function Home() {
 
               <p className="max-w-xl text-balance text-sm text-slate-300 sm:text-base">
                 Stay present in the conversation. Voisly records, transcribes,
-                and summarizes your meetings into clean notes and action items.
-                Export action items directly to your calendar.
+                and summarizes your meetings into clean notes and generated action points.
+                Export directly to your calendar.
               </p>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="#download"
+                href="https://apps.apple.com/be/app/voisly/id6754822721"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
               >
                 Download on iOS
@@ -102,8 +107,8 @@ export default function Home() {
           {/* Mockup card */}
           <div className="md:pl-4">
             <div className="relative mx-auto max-w-md">
-              <div className="absolute -inset-4 rounded-3xl bg-sky-500/20 blur-2xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-2xl shadow-black/50 backdrop-blur">
+              <div className="absolute -inset-4 rounded-3xl bg-sky-500/20 blur-2xl animate-float" />
+              <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-2xl shadow-black/50 backdrop-blur animate-float">
                 <div className="flex items-center justify-between px-4 pt-3 pb-2">
                   <div className="flex items-center gap-2">
                     <div className="h-7 w-7 rounded-2xl bg-sky-500/20" />
@@ -142,22 +147,9 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-                      Summary
-                    </p>
-                    <div className="mt-1 space-y-2 rounded-2xl bg-slate-900/80 p-3 text-xs text-slate-100">
-                      <p className="font-medium">Key decisions</p>
-                      <ul className="space-y-1 text-slate-200">
-                        <li>• Launch beta for new client portal in Q3</li>
-                        <li>• Increase check-ins for top 10 accounts</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div>
                     <div className="flex items-center justify-between">
                       <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-                        Action items
+                        Summary
                       </p>
                       <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 transition-all duration-200 hover:border-sky-500 hover:bg-slate-800 hover:text-sky-300">
                         <svg
@@ -170,11 +162,60 @@ export default function Home() {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth={2}
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
                           />
                         </svg>
-                        Add to calendar
+                        Share
                       </button>
+                    </div>
+                    <div className="mt-1 space-y-2 rounded-2xl bg-slate-900/80 p-3 text-xs text-slate-100">
+                      <p className="font-medium">Key decisions</p>
+                      <ul className="space-y-1 text-slate-200">
+                        <li>• Launch beta for new client portal in Q3</li>
+                        <li>• Increase check-ins for top 10 accounts</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                        Action points
+                      </p>
+                      <div className="flex items-center gap-1">
+                        <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 transition-all duration-200 hover:border-sky-500 hover:bg-slate-800 hover:text-sky-300">
+                          <svg
+                            className="h-3 w-3"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                            />
+                          </svg>
+                          Share
+                        </button>
+                        <button className="flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-200 transition-all duration-200 hover:border-sky-500 hover:bg-slate-800 hover:text-sky-300">
+                          <svg
+                            className="h-3 w-3"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                          Add to calendar
+                        </button>
+                      </div>
                     </div>
                     <div className="mt-1 space-y-1 rounded-2xl bg-slate-900/80 p-3 text-xs text-slate-100">
                       <ul className="space-y-1 text-slate-200">
@@ -189,9 +230,6 @@ export default function Home() {
                   <span className="text-[11px] text-slate-400">
                     42 min · 3 speakers
                   </span>
-                  <button className="rounded-full bg-sky-500/90 px-3 py-1.5 text-[11px] font-semibold text-slate-950 transition-all duration-200 hover:bg-sky-400 hover:shadow-md hover:shadow-sky-500/50">
-                    View full notes
-                  </button>
                 </div>
               </div>
             </div>
@@ -216,11 +254,11 @@ export default function Home() {
               },
               {
                 title: "Transcription & summaries",
-                body: "Accurate transcripts plus concise summaries with key decisions and action items.",
+                body: "Accurate transcripts plus concise summaries with key decisions and action points.",
               },
               {
                 title: "Export to calendar",
-                body: "One-tap export of action items to your calendar. Never miss a follow-up or deadline again.",
+                body: "One-tap export of action points to your calendar. Never miss a follow-up or deadline again.",
               },
             ].map((item) => (
               <div
@@ -252,7 +290,7 @@ export default function Home() {
                 Free
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
-                €0
+                $0
                 <span className="text-xs font-normal text-slate-400"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-300">
@@ -272,7 +310,7 @@ export default function Home() {
                 Basic
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
-                €4.99
+                $4.99
                 <span className="text-xs font-normal text-slate-400"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-300">
@@ -280,7 +318,7 @@ export default function Home() {
               </p>
               <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
                 <li>• Record and transcribe meetings</li>
-                <li>• AI summaries & action items</li>
+                <li>• Summaries & action points</li>
                 <li>• Export notes</li>
                 <li>• Calendar export & integrations</li>
               </ul>
@@ -292,7 +330,7 @@ export default function Home() {
                 Pro
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
-                €9.99
+                $9.99
                 <span className="text-xs font-normal text-slate-300"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-200">
@@ -312,7 +350,7 @@ export default function Home() {
                 Unlimited
               </p>
               <p className="mt-3 text-2xl font-semibold text-slate-50">
-                €19.99
+                $19.99
                 <span className="text-xs font-normal text-slate-400"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-300">
@@ -321,8 +359,7 @@ export default function Home() {
               <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
                 <li>• Unlimited recording time</li>
                 <li>• Unlimited transcriptions</li>
-                <li>• Unlimited summaries</li>
-                <li>• Unlimited actionable points</li>
+                <li>• Unlimited summaries & action points</li>
                 <li>• Calendar export & integrations</li>
               </ul>
             </div>
@@ -336,28 +373,22 @@ export default function Home() {
             Ready to stop losing your meetings?
           </h2>
           <p className="max-w-xl text-sm text-slate-300">
-            Voisly is launching on the App Store. Be the first to get it when
-            it&apos;s live.
+            Voisly is now available on the App Store. Download it today and start capturing your meetings.
           </p>
 
-          <form className="mt-4 flex max-w-md flex-col gap-3 sm:flex-row">
-            <input
-              type="email"
-              required
-              placeholder="Enter your email"
-              className="h-10 flex-1 rounded-full border border-slate-700 bg-slate-950/70 px-4 text-sm text-slate-50 placeholder:text-slate-500 transition-all duration-200 hover:border-slate-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-            />
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
-            >
-              Get notified
-            </button>
-          </form>
+          <a
+            href="https://apps.apple.com/be/app/voisly/id6754822721"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400 mt-4"
+          >
+            Download on the App Store
+          </a>
+
+          <QuestionForm />
 
           <p className="mt-6 text-xs text-slate-500">
-            No spam. Just a quick note when Voisly is live, plus maybe a tip or
-            two on making meetings less painful.
+            We&apos;ll get back to you as soon as possible.
           </p>
         </section>
 

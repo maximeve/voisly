@@ -1,6 +1,55 @@
+'use client';
+
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function SuccessPage() {
+  const searchParams = useSearchParams();
+  const [deepLinkUrl, setDeepLinkUrl] = useState<string>('');
+  const [buttonText, setButtonText] = useState<string>('Go back to the app');
+  const [showFallback, setShowFallback] = useState(false);
+
+  useEffect(() => {
+    // Extract token parameters from URL
+    const tokenHash = searchParams.get('token_hash');
+    const token = searchParams.get('token');
+    const type = searchParams.get('type') || 'email';
+
+    // Build deep link URL
+    let deepLink = 'meetingrec://';
+    const params = new URLSearchParams();
+
+    if (tokenHash) {
+      params.append('token_hash', tokenHash);
+      params.append('type', type);
+    } else if (token) {
+      params.append('token', token);
+      params.append('type', type);
+    }
+
+    if (params.toString()) {
+      deepLink += '?' + params.toString();
+      setDeepLinkUrl(deepLink);
+    } else {
+      // If no token, just link to app store
+      setDeepLinkUrl('https://apps.apple.com/be/app/voisly/id6754822721');
+      setButtonText('Download the app');
+    }
+
+    // Auto-redirect mobile users to app (optional)
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile && (tokenHash || token)) {
+      // Try to open app immediately
+      window.location.href = deepLink;
+      
+      // Show fallback message after 2 seconds if app didn't open
+      setTimeout(() => {
+        setShowFallback(true);
+      }, 2000);
+    }
+  }, [searchParams]);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-50">
       {/* Top blurred glow */}
@@ -60,9 +109,40 @@ export default function SuccessPage() {
           <p className="mx-auto max-w-lg text-balance text-base text-slate-300 sm:text-lg">
             Your email has been verified successfully. You&apos;re all set to start using Voisly!
           </p>
-          <p className="mx-auto max-w-lg text-balance text-base text-slate-400 sm:text-lg">
-            Go back to the app.
-          </p>
+
+          {/* Deep Link Button */}
+          {deepLinkUrl && (
+            <a
+              href={deepLinkUrl}
+              className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
+            >
+              {buttonText}
+            </a>
+          )}
+
+          {/* Fallback message for mobile */}
+          {showFallback && deepLinkUrl.startsWith('meetingrec://') && (
+            <p className="mx-auto max-w-lg text-balance text-sm text-slate-400">
+              If the app didn&apos;t open,{' '}
+              <a href={deepLinkUrl} className="text-sky-400 hover:text-sky-300 underline">
+                click here
+              </a>
+              {' '}or use the button above.
+            </p>
+          )}
+
+          {/* Download link if no token */}
+          {!deepLinkUrl.startsWith('meetingrec://') && (
+            <p className="mx-auto max-w-lg text-balance text-sm text-slate-400">
+              Don&apos;t have the app?{' '}
+              <a
+                href="https://apps.apple.com/be/app/voisly/id6754822721"
+                className="text-sky-400 hover:text-sky-300 underline"
+              >
+                Download from App Store
+              </a>
+            </p>
+          )}
         </div>
 
         {/* Footer */}
@@ -73,4 +153,3 @@ export default function SuccessPage() {
     </div>
   );
 }
-

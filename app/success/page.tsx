@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const [deepLinkUrl, setDeepLinkUrl] = useState<string>('');
   const [buttonText, setButtonText] = useState<string>('Go back to the app');
@@ -51,6 +51,75 @@ export default function SuccessPage() {
   }, [searchParams]);
 
   return (
+    <>
+      {/* Success Icon */}
+      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 ring-2 ring-emerald-500/50">
+        <svg
+          className="h-8 w-8 text-emerald-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+      </div>
+
+      {/* Title */}
+      <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+        <span className="bg-gradient-to-r from-sky-300 to-sky-500 bg-clip-text text-transparent">
+          Success!
+        </span>
+      </h1>
+
+      {/* Message */}
+      <p className="mx-auto max-w-lg text-balance text-base text-slate-300 sm:text-lg">
+        Your email has been verified successfully. You&apos;re all set to start using Voisly!
+      </p>
+
+      {/* Deep Link Button */}
+      {deepLinkUrl && (
+        <a
+          href={deepLinkUrl}
+          className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
+        >
+          {buttonText}
+        </a>
+      )}
+
+      {/* Fallback message for mobile */}
+      {showFallback && deepLinkUrl.startsWith('meetingrec://') && (
+        <p className="mx-auto max-w-lg text-balance text-sm text-slate-400">
+          If the app didn&apos;t open,{' '}
+          <a href={deepLinkUrl} className="text-sky-400 hover:text-sky-300 underline">
+            click here
+          </a>
+          {' '}or use the button above.
+        </p>
+      )}
+
+      {/* Download link if no token */}
+      {!deepLinkUrl.startsWith('meetingrec://') && (
+        <p className="mx-auto max-w-lg text-balance text-sm text-slate-400">
+          Don&apos;t have the app?{' '}
+          <a
+            href="https://apps.apple.com/be/app/voisly/id6754822721"
+            className="text-sky-400 hover:text-sky-300 underline"
+          >
+            Download from App Store
+          </a>
+        </p>
+      )}
+    </>
+  );
+}
+
+export default function SuccessPage() {
+  return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-50">
       {/* Top blurred glow */}
       <div className="pointer-events-none fixed inset-x-0 top-[-200px] z-0 flex justify-center opacity-60">
@@ -81,68 +150,35 @@ export default function SuccessPage() {
 
         {/* Success Content */}
         <div className="w-full space-y-6 text-center">
-          {/* Success Icon */}
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 ring-2 ring-emerald-500/50">
-            <svg
-              className="h-8 w-8 text-emerald-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-            <span className="bg-gradient-to-r from-sky-300 to-sky-500 bg-clip-text text-transparent">
-              Success!
-            </span>
-          </h1>
-
-          {/* Message */}
-          <p className="mx-auto max-w-lg text-balance text-base text-slate-300 sm:text-lg">
-            Your email has been verified successfully. You&apos;re all set to start using Voisly!
-          </p>
-
-          {/* Deep Link Button */}
-          {deepLinkUrl && (
-            <a
-              href={deepLinkUrl}
-              className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
-            >
-              {buttonText}
-            </a>
-          )}
-
-          {/* Fallback message for mobile */}
-          {showFallback && deepLinkUrl.startsWith('meetingrec://') && (
-            <p className="mx-auto max-w-lg text-balance text-sm text-slate-400">
-              If the app didn&apos;t open,{' '}
-              <a href={deepLinkUrl} className="text-sky-400 hover:text-sky-300 underline">
-                click here
-              </a>
-              {' '}or use the button above.
-            </p>
-          )}
-
-          {/* Download link if no token */}
-          {!deepLinkUrl.startsWith('meetingrec://') && (
-            <p className="mx-auto max-w-lg text-balance text-sm text-slate-400">
-              Don&apos;t have the app?{' '}
-              <a
-                href="https://apps.apple.com/be/app/voisly/id6754822721"
-                className="text-sky-400 hover:text-sky-300 underline"
-              >
-                Download from App Store
-              </a>
-            </p>
-          )}
+          <Suspense fallback={
+            <>
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 ring-2 ring-emerald-500/50">
+                <svg
+                  className="h-8 w-8 text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+                <span className="bg-gradient-to-r from-sky-300 to-sky-500 bg-clip-text text-transparent">
+                  Success!
+                </span>
+              </h1>
+              <p className="mx-auto max-w-lg text-balance text-base text-slate-300 sm:text-lg">
+                Your email has been verified successfully. You&apos;re all set to start using Voisly!
+              </p>
+            </>
+          }>
+            <SuccessContent />
+          </Suspense>
         </div>
 
         {/* Footer */}

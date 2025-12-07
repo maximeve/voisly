@@ -1,54 +1,62 @@
 'use client';
 
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
 function SuccessContent() {
-  const searchParams = useSearchParams();
   const [deepLinkUrl, setDeepLinkUrl] = useState<string>('');
   const [buttonText, setButtonText] = useState<string>('Go back to the app');
   const [showFallback, setShowFallback] = useState(false);
 
   useEffect(() => {
-    // Extract token parameters from URL
-    const tokenHash = searchParams.get('token_hash');
-    const token = searchParams.get('token');
-    const type = searchParams.get('type') || 'email';
-
-    // Build deep link URL
+    // Extract session tokens from URL hash fragment
+    // Supabase redirects with: #access_token=xxx&refresh_token=xxx&expires_at=xxx&token_type=bearer&type=signup
+    const hash = typeof window !== 'undefined' ? window.location.hash.substring(1) : ''; // Remove the '#'
+    const hashParams = hash ? new URLSearchParams(hash) : null;
+    
+    const accessToken = hashParams?.get('access_token');
+    const refreshToken = hashParams?.get('refresh_token');
+    const expiresAt = hashParams?.get('expires_at');
+    const tokenType = hashParams?.get('token_type') || 'bearer';
+    const type = hashParams?.get('type') || 'signup';
+    
+    // Build deep link URL with hash fragment
     let deepLink = 'meetingrec://';
-    const params = new URLSearchParams();
-
-    if (tokenHash) {
-      params.append('token_hash', tokenHash);
-      params.append('type', type);
-    } else if (token) {
-      params.append('token', token);
-      params.append('type', type);
-    }
-
-    if (params.toString()) {
-      deepLink += '?' + params.toString();
+    
+    if (accessToken && refreshToken) {
+      // Pass session tokens in hash fragment (same format as Supabase redirect)
+      const sessionParams = new URLSearchParams();
+      sessionParams.append('access_token', accessToken);
+      sessionParams.append('refresh_token', refreshToken);
+      if (expiresAt) sessionParams.append('expires_at', expiresAt);
+      sessionParams.append('token_type', tokenType);
+      sessionParams.append('type', type);
+      
+      deepLink += '#' + sessionParams.toString();
       setDeepLinkUrl(deepLink);
     } else {
-      // If no token, just link to app store
+      // If no session tokens, just link to app store
       setDeepLinkUrl('https://apps.apple.com/be/app/voisly/id6754822721');
       setButtonText('Download the app');
+      if (typeof window !== 'undefined') {
+        console.warn('No session tokens found in URL hash fragment');
+      }
     }
-
+    
     // Auto-redirect mobile users to app (optional)
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile && (tokenHash || token)) {
-      // Try to open app immediately
-      window.location.href = deepLink;
-      
-      // Show fallback message after 2 seconds if app didn't open
-      setTimeout(() => {
-        setShowFallback(true);
-      }, 2000);
+    if (typeof window !== 'undefined') {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile && accessToken && refreshToken) {
+        // Try to open app immediately
+        window.location.href = deepLink;
+        
+        // Show fallback message after 2 seconds if app didn't open
+        setTimeout(() => {
+          setShowFallback(true);
+        }, 2000);
+      }
     }
-  }, [searchParams]);
+  }, []);
 
   return (
     <>

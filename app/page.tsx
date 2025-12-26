@@ -354,7 +354,7 @@ export default function Home() {
                 <span className="text-xs font-normal text-slate-400"> /month</span>
               </p>
               <p className="mt-2 text-xs text-slate-300">
-                For small teams who want a shared source of truth.
+                For professionals who need unlimited meeting capture.
               </p>
               <ul className="mt-4 space-y-1.5 text-xs text-slate-200">
                 <li>• Unlimited recording time</li>
